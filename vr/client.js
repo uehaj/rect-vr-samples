@@ -4,18 +4,26 @@
 
 // Auto-generated content.
 import {VRInstance} from 'react-vr-web';
+import * as OVRUI from 'ovrui';
 
 function init(bundle, parent, options) {
-  const vr = new VRInstance(bundle, 'sample_redux', parent, {
-    // Add custom options here
-    ...options,
+  OVRUI.loadFont(
+    '../static_assets/fonts/japanese.fnt',
+    '../static_assets/fonts/japanese.png'
+  ).then((font) => {
+    // 'font' contains everything React VR needs to render <Text> elements with
+    // your custom font.
+
+    // Pass it to the boilerplate init code
+    const vr = new VRInstance(bundle, 'World', parent, {
+      font: font,
+      ...options,
+    });
+    vr.render = function() {
+      // Any custom behavior you want to perform on each frame goes here
+    };
+    vr.start();
   });
-  vr.render = function() {
-    // Any custom behavior you want to perform on each frame goes here
-  };
-  // Begin the animation loop
-  vr.start();
-  return vr;
 }
 
 window.ReactVR = {init};

@@ -8,13 +8,10 @@ import {
   View,
 } from 'react-vr';
 
-export default class sample_redux extends React.Component {
-  render() {
+const TextPanel = (props) => {
     return (
-      <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <Text
-          style={{
+      <Text
+        style={{
             backgroundColor: '#777879',
             fontSize: 0.8,
             fontWeight: '400',
@@ -24,12 +21,21 @@ export default class sample_redux extends React.Component {
             textAlign: 'center',
             textAlignVertical: 'center',
             transform: [{translate: [0, 0, -3]}],
-          }}>
-          hello
+        }}>
+            hello世界
         </Text>
+    );
+}
+
+export default class World extends React.Component {
+  render() {
+    return (
+      <View>
+        <Pano source={asset('chess-world.jpg')}/>
+        <TextPanel />
       </View>
     );
   }
 };
 
-AppRegistry.registerComponent('sample_redux', () => sample_redux);
+AppRegistry.registerComponent('World', () => World);
