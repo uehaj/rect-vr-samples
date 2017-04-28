@@ -6,16 +6,41 @@ import {
   Pano,
   Text,
   View,
+  Animated,
 } from 'react-vr';
 
 export default class World extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bounceValue: new Animated.Value(0),
+    };
+  }
+  bounce() {
+    this.state.bounceValue.setValue(0);     // Start large
+    Animated.spring(                          // Base: spring, decay, timing
+      this.state.bounceValue,                 // Animate `bounceValue`
+      {
+        toValue: 360,                         // Animate to smaller size
+        friction: 1,                          // Bouncier spring
+      }
+    ).start();                                // Start the animation
+  }
+  componentDidMount() {
+    this.bounce();
+  }
+  handleEnter(ev) {
+    console.log(ev.target);
+    this.bounce();
+  }
   render() {
     return (
       <View>
         <Pano source={asset('02-office.jpg')}/>
-        <Text
+        <Animated.Text
+          onEnter={this.handleEnter.bind(this)}
           style={{
-            backgroundColor: '#bbaa99',
+            backgroundColor: '#aa9988',
             color: 'black',
             fontSize: 0.4,
             fontWeight: '700',
@@ -26,11 +51,13 @@ export default class World extends React.Component {
             textAlignVertical: 'center',
             transform: [
               {translate: [-3, 0.2, -6]},
-              {rotateY: 30}
+              {rotateZ: this.state.bounceValue},
+              {rotateY: 30},
+              {scale: 1.0},
             ],
           }}>
-          NTTテクノクロス
-        </Text>
+          NTT テクノクロス
+        </Animated.Text>
       </View>
     );
   }
