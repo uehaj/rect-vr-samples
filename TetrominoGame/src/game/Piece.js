@@ -1,5 +1,5 @@
 import * as pieceUtils from './pieceUtils';
-import * as Keys from './keys';
+import * as Keys from '../Keys';
 
 export default class Piece {
   constructor(x, y, piece, spin) {

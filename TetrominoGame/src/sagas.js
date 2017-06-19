@@ -5,7 +5,7 @@ import { race, take, put, call, fork, select, cancel } from 'redux-saga/effects'
 import * as Config from './game/config';
 import * as Actions from './actions';
 import * as Types from './types';
-import * as Keys from './game/keys';
+import * as Keys from './Keys';
 import * as Board from './game/board';
 import Piece from './game/Piece';
 

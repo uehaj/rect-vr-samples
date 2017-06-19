@@ -14,9 +14,10 @@ const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(sagas);
 
-const TetrominoGame = () =>
+const App = () =>
   <Provider store={store}>
     <KeyHandler captureKeys={[...Keys.ALL]}>
+      <Pano source={asset('13905712293_4910bb2e3b_o.jpg')} />
       <Text
         style={{
           backgroundColor: '#777879',
@@ -34,4 +35,4 @@ const TetrominoGame = () =>
     </KeyHandler>
   </Provider>;
 
-export default TetrominoGame;
+export default App;

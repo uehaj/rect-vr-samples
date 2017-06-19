@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { AppRegistry, asset, Pano, Text, View } from 'react-vr';
+import { asset, Pano, Text, View } from 'react-vr';
 import * as Actions from '../actions';
 
 class KeyHandler extends Component {

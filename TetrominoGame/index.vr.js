@@ -1,11 +1,11 @@
 import React from 'react';
 import { AppRegistry, asset, Pano, Text, View } from 'react-vr';
-import TetrominoGame from './src/TetrominoGame';
+import App from './src/App';
 
-export default class App extends React.Component {
+export default class TetrominoGame extends React.Component {
   render() {
-    return <TetrominoGame />;
+    return <App />;
   }
 }
 
-AppRegistry.registerComponent('App', () => App);
+AppRegistry.registerComponent('TetrominoGame', () => TetrominoGame);

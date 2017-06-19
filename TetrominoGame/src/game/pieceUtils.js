@@ -121,7 +121,7 @@ export function unSetPiece(board, xPos, yPos, piece, spin) {
 }
 
 /*
- * Wheather you can put a piect onto board position (xPos, yPos)
+ * Wheather you can put a piece onto the board position (xPos, yPos)
  * with the spin.
  */
 export function canPut(board, xPos, yPos, piece, spin) {
