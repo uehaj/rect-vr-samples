@@ -1,5 +1,5 @@
 {
-  "name": "TetrominoGame",
+  "name": "Hoge",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,15 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "ovrui": "^1.1.0",
-    "react": "^15.4.2",
-    "react-native": "^0.42.3",
+    "ovrui": "~1.2.0",
+    "react": "~15.4.1",
+    "react-native": "~0.42.0",
     "react-redux": "^5.0.5",
-    "react-vr": "^1.1.0",
-    "react-vr-web": "^1.2.0",
-    "redux": "^3.6.0",
+    "react-vr": "~1.2.0",
+    "react-vr-web": "~1.2.0",
+    "redux": "^3.7.0",
     "redux-actions": "^2.0.3",
-    "redux-saga": "^0.15.3",
+    "redux-saga": "^0.15.4",
     "three": "^0.80.1"
   },
   "devDependencies": {

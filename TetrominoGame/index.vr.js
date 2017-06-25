@@ -1,11 +1,28 @@
 import React from 'react';
-import { AppRegistry, asset, Pano, Text, View } from 'react-vr';
+import { Provider } from 'react-redux';
+import {
+  AppRegistry,
+  asset,
+  Pano,
+  Text,
+  View,
+  Box,
+  AmbientLight,
+  PointLight,
+} from 'react-vr';
 import App from './src/App';
+import configureStore from './src/configureStore';
 
 export default class TetrominoGame extends React.Component {
   render() {
-    return <App />;
+    const store = configureStore();
+
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   }
-}
+};
 
 AppRegistry.registerComponent('TetrominoGame', () => TetrominoGame);
