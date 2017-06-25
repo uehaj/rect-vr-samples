@@ -1,10 +1,9 @@
 import React from 'react';
-import { AppRegistry, asset, Pano, Text, View, Box, SpotLight, AmbientLight,
-         PointLight,
-       } from 'react-vr';
+import { asset, Pano } from 'react-vr';
 
-import KeyHandler from './components/KeyHandler';
 import * as Keys from './Keys';
+import KeyHandler from './components/KeyHandler';
+import PlayField from './components/PlayField';
 
 class App extends React.Component {
 
@@ -18,21 +17,7 @@ class App extends React.Component {
     return (
       <KeyHandler captureKeys={[...Keys.ALL]}>
         <Pano source={asset('13905712293_4910bb2e3b_o.jpg')} />
-        <Text
-          lit={true}
-          style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            fontWeight: '400',
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{ translate: [0, 0, -3] }],
-          }}>
-          hello2
-        </Text>
+        <PlayField />
       </KeyHandler>
     );
   }
