@@ -5,7 +5,6 @@ import { asset, Pano, Text, View } from 'react-vr';
 import * as Actions from '../actions';
 
 class KeyHandler extends Component {
-
   constructor(props) {
     super(props);
     this.handleKeyup = this.handleKeyup.bind(this);

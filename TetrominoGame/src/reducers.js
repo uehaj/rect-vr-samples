@@ -11,7 +11,7 @@ const initialState = {
   goAround: false,
 };
 
-export default(state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case Types.UI_BUTTON_CLICKED:
       return state;
@@ -55,7 +55,7 @@ export default(state = initialState, action) => {
         highScore: Math.max(state.score + action.payload, state.highScore),
       };
     case Types.SET_GO_AROUND:
-      console.log('Types.SET_GO_AROUND:'+action.payload);
+      console.log('Types.SET_GO_AROUND:' + action.payload);
       return {
         ...state,
         goAround: action.payload,

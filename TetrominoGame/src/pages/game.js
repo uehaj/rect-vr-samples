@@ -12,7 +12,8 @@ import PlayField from '../components/PlayField';
 const Game = props =>
   <Layout>
     <div>
-      <style jsx>{`
+      <style jsx>
+        {`
           .container {
             display: flex;
             flex-flow: row nowrap;
@@ -38,7 +39,7 @@ const Game = props =>
             padding: 1em;
             background-color: #111133;
           }
-      `}
+        `}
       </style>
       <KeyHandler captureKeys={[...Keys.ALL]} />
       <div className="container">
@@ -54,4 +55,6 @@ const Game = props =>
     </div>
   </Layout>;
 
-export default withRedux(connect(state => state, dispatch => ({ dispatch }))(Game));
+export default withRedux(
+  connect(state => state, dispatch => ({ dispatch }))(Game)
+);

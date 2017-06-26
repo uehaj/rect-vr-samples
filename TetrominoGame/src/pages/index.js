@@ -7,19 +7,20 @@ import * as Keys from '../game/keys';
 // eslint-disable-next-line no-unused-vars
 const Index = props =>
   <Layout>
-    <style jsx>{`
-      .container {
-        display: flex;
-        flex-flow: column nowrap;
-      }
-      .content {
-        flex-grow: 1;
-        padding: 1em;
-      }
-      .h1 {
-        size: 72pt;
-      }
-    `}
+    <style jsx>
+      {`
+        .container {
+          display: flex;
+          flex-flow: column nowrap;
+        }
+        .content {
+          flex-grow: 1;
+          padding: 1em;
+        }
+        .h1 {
+          size: 72pt;
+        }
+      `}
     </style>
     <div className="continer">
       <KeyHandler captureKeys={Keys.ALL} />
@@ -35,4 +36,6 @@ const Index = props =>
     </div>
   </Layout>;
 
-export default withRedux(connect(state => state, dispatch => ({ dispatch }))(Index));
+export default withRedux(
+  connect(state => state, dispatch => ({ dispatch }))(Index)
+);

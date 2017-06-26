@@ -10,13 +10,11 @@ export default class Piece {
   }
 
   unsetTo(board) {
-    return pieceUtils.unSetPiece(board,
-                             this.x, this.y, this.piece, this.spin);
+    return pieceUtils.unSetPiece(board, this.x, this.y, this.piece, this.spin);
   }
 
   setTo(board) {
-    return pieceUtils.setPiece(board,
-                           this.x, this.y, this.piece, this.spin);
+    return pieceUtils.setPiece(board, this.x, this.y, this.piece, this.spin);
   }
 
   canPut(board) {
@@ -24,10 +22,21 @@ export default class Piece {
   }
 
   tryPutTo(board, oldPiece) {
-    const unsetBoard
-          = pieceUtils.unSetPiece(board, oldPiece.x, oldPiece.y, oldPiece.piece, oldPiece.spin);
+    const unsetBoard = pieceUtils.unSetPiece(
+      board,
+      oldPiece.x,
+      oldPiece.y,
+      oldPiece.piece,
+      oldPiece.spin
+    );
     if (this.canPut(unsetBoard)) {
-      const newBoard = pieceUtils.setPiece(unsetBoard, this.x, this.y, this.piece, this.spin);
+      const newBoard = pieceUtils.setPiece(
+        unsetBoard,
+        this.x,
+        this.y,
+        this.piece,
+        this.spin
+      );
       return [newBoard, this];
     }
     return [board, oldPiece];
@@ -54,7 +63,12 @@ export default class Piece {
 
   reachedToBottom(board) {
     // eslint-disable-next-line no-unused-vars
-    const [_, piece] = new Piece(this.x, this.y + 1, this.piece, this.spin).tryPutTo(board, this);
+    const [_, piece] = new Piece(
+      this.x,
+      this.y + 1,
+      this.piece,
+      this.spin
+    ).tryPutTo(board, this);
     return piece === this;
   }
 }
