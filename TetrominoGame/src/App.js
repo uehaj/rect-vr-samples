@@ -47,6 +47,7 @@ class App extends React.Component {
       <KeyHandler captureKeys={[...Keys.ALL]}>
         <Pano source={asset('13905712293_4910bb2e3b_o.jpg')} />
         <AnimatedScene style={styles.scene}/>
+        <SpotLight />
         <Text style={{
                 width: 10,
                 borderRadius: 0.1,
