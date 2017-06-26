@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Box } from 'react-vr';
+import { View, Box } from 'react-vr';
 import { connect } from 'react-redux';
 import * as Board from '../game/board';
 
@@ -28,36 +28,28 @@ function getColor(color) {
   }
 }
 
-const Block = props => {
+const Block = (props) => {
   const { x, y, color } = props;
   const style = {
     color: getColor(color),
     transform: [{ translate: [x, y, -30] }],
   };
-  return (
-    <Box
-      dimWidth={0.99}
-      dimDepth={0.99}
-      dimHeight={0.99}
-      style={style}
-      lit={true}
-    />
-  );
+  return <Box dimWidth={0.99} dimDepth={0.99} dimHeight={0.99} style={style} lit />;
 };
 
-const PlayField = props => {
-  const board = props.currentPiece
-    ? props.currentPiece.setTo(props.board)
-    : props.board;
+const PlayField = (props) => {
+  const board = props.currentPiece ? props.currentPiece.setTo(props.board) : props.board;
   return (
     <View>
       {board &&
         board.slice(1).map((row, y) =>
-          <View key={`${y}`}>
+          // eslint-disable-next-line
+          <View key={`${y + row.toString()}`}>
             {row.map((cell, x) => {
               if (cell === Board.W) {
                 return (
                   <Block
+                    // eslint-disable-next-line
                     key={`${x}${y}${cell}`}
                     x={x}
                     y={10 - y}
@@ -67,6 +59,7 @@ const PlayField = props => {
               } else if (cell !== 0) {
                 return (
                   <Block
+                    // eslint-disable-next-line
                     key={`${x}${y}${cell}`}
                     x={x}
                     y={10 - y}
@@ -74,8 +67,9 @@ const PlayField = props => {
                   />
                 );
               }
+              return null;
             })}
-          </View>
+          </View>,
         )}
     </View>
   );

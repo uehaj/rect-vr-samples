@@ -10,6 +10,7 @@ export default () => {
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     const acceptCallback = () => {
+      // eslint-disable-next-line
       const nextRootReducer = require('./reducers').default;
       store.replaceReducer(nextRootReducer);
     };

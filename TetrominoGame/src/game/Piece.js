@@ -27,16 +27,10 @@ export default class Piece {
       oldPiece.x,
       oldPiece.y,
       oldPiece.piece,
-      oldPiece.spin
+      oldPiece.spin,
     );
     if (this.canPut(unsetBoard)) {
-      const newBoard = pieceUtils.setPiece(
-        unsetBoard,
-        this.x,
-        this.y,
-        this.piece,
-        this.spin
-      );
+      const newBoard = pieceUtils.setPiece(unsetBoard, this.x, this.y, this.piece, this.spin);
       return [newBoard, this];
     }
     return [board, oldPiece];
@@ -63,12 +57,7 @@ export default class Piece {
 
   reachedToBottom(board) {
     // eslint-disable-next-line no-unused-vars
-    const [_, piece] = new Piece(
-      this.x,
-      this.y + 1,
-      this.piece,
-      this.spin
-    ).tryPutTo(board, this);
+    const [_, piece] = new Piece(this.x, this.y + 1, this.piece, this.spin).tryPutTo(board, this);
     return piece === this;
   }
 }

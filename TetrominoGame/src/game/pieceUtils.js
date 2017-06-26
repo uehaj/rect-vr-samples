@@ -73,10 +73,7 @@ export function canPut(board, xPos, yPos, piece, spin) {
   for (let y = 0; y < pieceArray.length; y += 1) {
     for (let x = 0; x < pieceArray[y].length; x += 1) {
       const cell = pieceArray[y][x];
-      if (
-        !isEmpty(cell) &&
-        !isEmpty(Board.getCell(board, xPos + x, yPos + y))
-      ) {
+      if (!isEmpty(cell) && !isEmpty(Board.getCell(board, xPos + x, yPos + y))) {
         return false;
       }
     }

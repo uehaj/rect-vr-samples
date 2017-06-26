@@ -55,7 +55,6 @@ export default (state = initialState, action) => {
         highScore: Math.max(state.score + action.payload, state.highScore),
       };
     case Types.SET_GO_AROUND:
-      console.log('Types.SET_GO_AROUND:' + action.payload);
       return {
         ...state,
         goAround: action.payload,

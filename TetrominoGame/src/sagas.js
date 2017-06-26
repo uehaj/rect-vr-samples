@@ -1,16 +1,8 @@
 /* eslint no-constant-condition: ["error", { "checkLoops": false }] */
-import { asset, Pano, Scene, Animated } from 'react-vr';
 import { delay } from 'redux-saga';
-import {
-  race,
-  take,
-  put,
-  call,
-  fork,
-  select,
-  cancel,
-} from 'redux-saga/effects';
-//import 'seedrandom';
+import { race, take, put, call, fork, select, cancel } from 'redux-saga/effects';
+
+// import 'seedrandom';
 
 import * as Config from './game/config';
 import * as Actions from './actions';
@@ -77,10 +69,7 @@ export function* slackTimeChecker() {
       keyDown: take(Types.UI_KEY_DOWN),
       timeTick: take(Types.SYS_TIME_TICK),
     });
-    if (
-      slackTime === 0 ||
-      (keyDown && keyDown.payload === Keys.KEY_ARROW_DOWN)
-    ) {
+    if (slackTime === 0 || (keyDown && keyDown.payload === Keys.KEY_ARROW_DOWN)) {
       // 固定時間中に↓を押したとき、もしくは
       // 固定時間終了時には、このpieceは底に落下したことが確定。
       yield put(Actions.sysFixDownPiece());
@@ -142,15 +131,9 @@ export function* pieceFall() {
     }
     if (keyDown || (timeTick && timeTick.payload % 10 === 0)) {
       // calcurate next piece position & spin
-      const nextPiece = piece.nextPiece(
-        (keyDown && keyDown.payload) || Keys.KEY_ARROW_DOWN
-      );
+      const nextPiece = piece.nextPiece((keyDown && keyDown.payload) || Keys.KEY_ARROW_DOWN);
       if (nextPiece.canPut(board)) {
-        if (
-          nextPiece !== piece &&
-          keyDown &&
-          keyDown.payload === Keys.KEY_ARROW_DOWN
-        ) {
+        if (nextPiece !== piece && keyDown && keyDown.payload === Keys.KEY_ARROW_DOWN) {
           yield put(Actions.addScore(1));
         }
         piece = nextPiece;
@@ -184,6 +167,7 @@ export default function* rootSaga() {
   while (true) {
     // デモ画面
     let key;
+    // eslint-disable-next-line
     while ((key = yield take(Types.UI_KEY_DOWN)).payload !== Keys.KEY_S) {
       if (key.payload === Keys.KEY_R) {
         console.log('a[4]');

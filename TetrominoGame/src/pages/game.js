@@ -10,7 +10,7 @@ import PlayField from '../components/PlayField';
  * @param {*} props
  */
 const Game = props =>
-  <Layout>
+  (<Layout>
     <div>
       <style jsx>
         {`
@@ -53,8 +53,6 @@ const Game = props =>
         </div>
       </div>
     </div>
-  </Layout>;
+  </Layout>);
 
-export default withRedux(
-  connect(state => state, dispatch => ({ dispatch }))(Game)
-);
+export default withRedux(connect(state => state, dispatch => ({ dispatch }))(Game));

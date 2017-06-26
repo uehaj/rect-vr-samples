@@ -32,12 +32,7 @@ export const KEY_ARROW_UP = 38;
 export const KEY_ARROW_RIGHT = 39;
 export const KEY_ARROW_DOWN = 40;
 
-export const ARROW = [
-  KEY_ARROW_DOWN,
-  KEY_ARROW_LEFT,
-  KEY_ARROW_UP,
-  KEY_ARROW_RIGHT,
-];
+export const ARROW = [KEY_ARROW_DOWN, KEY_ARROW_LEFT, KEY_ARROW_UP, KEY_ARROW_RIGHT];
 
 export const A_Z = [
   65,

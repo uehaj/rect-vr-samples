@@ -8,7 +8,8 @@
     "open": "node -e \"require('xopen')('http://localhost:8081/vr/')\"",
     "devtools": "react-devtools",
     "test": "jest",
-    "format": "prettier-eslint --write \"src/**/*.js\" --parser babylon --semi --single-quote --trailing-comma"
+    "format": "prettier-eslint \"src/**/*.js\" --write --semi --single-quote --trailing-comma all",
+    "lint": "eslint --ignore-pattern node_modules --ignore-pattern __test__ src"
   },
   "dependencies": {
     "ovrui": "~1.2.0",
@@ -25,6 +26,10 @@
   "devDependencies": {
     "babel-jest": "^19.0.0",
     "babel-preset-react-native": "^1.9.1",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0",
     "jest": "^19.0.2",
     "prettier": "^1.4.4",
     "prettier-eslint-cli": "^4.1.1",

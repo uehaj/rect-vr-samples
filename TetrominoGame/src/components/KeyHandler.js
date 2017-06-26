@@ -1,10 +1,9 @@
 import React from 'react';
-import { Component } from 'react';
 import { connect } from 'react-redux';
-import { asset, Pano, Text, View } from 'react-vr';
+import { View } from 'react-vr';
 import * as Actions from '../actions';
 
-class KeyHandler extends Component {
+class KeyHandler extends React.Component {
   constructor(props) {
     super(props);
     this.handleKeyup = this.handleKeyup.bind(this);
@@ -22,7 +21,6 @@ class KeyHandler extends Component {
     if (event.nativeEvent.inputEvent.type === 'KeyboardInputEvent') {
       const keyEvent = event.nativeEvent.inputEvent;
       if (keyEvent.eventType === 'keyup') {
-        console.log(event.nativeEvent.inputEvent.keyCode);
         if (this.props.captureKeys.includes(keyEvent.keyCode)) {
           this.props.dispatch(Actions.uiKeyDown(keyEvent.keyCode));
         }

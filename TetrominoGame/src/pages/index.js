@@ -6,7 +6,7 @@ import * as Keys from '../game/keys';
 
 // eslint-disable-next-line no-unused-vars
 const Index = props =>
-  <Layout>
+  (<Layout>
     <style jsx>
       {`
         .container {
@@ -34,8 +34,6 @@ const Index = props =>
         (S) to start
       </div>
     </div>
-  </Layout>;
+  </Layout>);
 
-export default withRedux(
-  connect(state => state, dispatch => ({ dispatch }))(Index)
-);
+export default withRedux(connect(state => state, dispatch => ({ dispatch }))(Index));

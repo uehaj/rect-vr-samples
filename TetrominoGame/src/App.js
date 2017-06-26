@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { asset, Pano, Scene, Animated, Text } from 'react-vr';
+import { asset, Pano, Scene, Animated, Text, SpotLight } from 'react-vr';
 
 import * as Actions from './actions';
 import * as Keys from './Keys';
@@ -20,9 +20,7 @@ class App extends React.Component {
   componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', this.props, nextProps);
     if (!this.props.goAround && nextProps.goAround) {
-      console.log('componentWillReceiveProps--------------');
       Animated.timing(this.state.direction, {
         toValue: 360,
         duration: 7000,

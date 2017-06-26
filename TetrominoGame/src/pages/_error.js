@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 
 export default () =>
-  <Layout>
+  (<Layout>
     <h1>Error</h1>
-  </Layout>;
+  </Layout>);
