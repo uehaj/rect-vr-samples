@@ -1,5 +1,5 @@
 {
-  "name": "Hoge",
+  "name": "TetrominoGame",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "open": "node -e \"require('xopen')('http://localhost:8081/vr/')\"",
     "devtools": "react-devtools",
     "test": "jest",
-    "format": "prettier --write \"src/**/*.js\" --parser babylon --single-quote --trailing-comma"
+    "format": "prettier-eslint --write \"src/**/*.js\" --parser babylon --semi --single-quote --trailing-comma"
   },
   "dependencies": {
     "ovrui": "~1.2.0",
@@ -27,6 +27,7 @@
     "babel-preset-react-native": "^1.9.1",
     "jest": "^19.0.2",
     "prettier": "^1.4.4",
+    "prettier-eslint-cli": "^4.1.1",
     "react-devtools": "^2.1.3",
     "react-test-renderer": "~15.4.1",
     "xopen": "1.0.0"
