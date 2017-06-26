@@ -7,7 +7,8 @@ const initialState = {
     show: false,
   },
   score: 0,
-  highScore: 0
+  highScore: 0,
+  goAround: false,
 };
 
 export default(state = initialState, action) => {
@@ -53,8 +54,13 @@ export default(state = initialState, action) => {
         score: state.score + action.payload,
         highScore: Math.max(state.score + action.payload, state.highScore),
       };
+    case Types.SET_GO_AROUND:
+      console.log('Types.SET_GO_AROUND:'+action.payload);
+      return {
+        ...state,
+        goAround: action.payload,
+      };
     default:
       return state;
   }
 };
-

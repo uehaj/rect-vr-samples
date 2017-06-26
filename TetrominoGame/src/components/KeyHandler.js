@@ -8,21 +8,22 @@ class KeyHandler extends Component {
 
   constructor(props) {
     super(props);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyup = this.handleKeyup.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('keyup', this.handleKeyup);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
+    window.removeEventListener('keyup', this.handleKeyup);
   }
 
-  handleKeyDown(event) {
+  handleKeyup(event) {
     if (event.nativeEvent.inputEvent.type === 'KeyboardInputEvent') {
       const keyEvent = event.nativeEvent.inputEvent;
-      if (keyEvent.eventType === 'keydown') {
+      if (keyEvent.eventType === 'keyup') {
+        console.log(event.nativeEvent.inputEvent.keyCode);
         if (this.props.captureKeys.includes(keyEvent.keyCode)) {
           this.props.dispatch(Actions.uiKeyDown(keyEvent.keyCode));
         }
@@ -32,7 +33,7 @@ class KeyHandler extends Component {
 
   render() {
     return (
-      <View onInput={this.handleKeyDown}>
+      <View onInput={this.handleKeyup}>
         {this.props.children}
       </View>
     );

@@ -24,7 +24,15 @@ const Block = (props) => {
     color: getColor(color),
     transform: [{ translate: [x, y, -30] }],
   };
-  return (<Box style={style} lit={true} />);
+  return (
+    <Box
+      dimWidth={0.99}
+      dimDepth={0.99}
+      dimHeight={0.99}
+      style={style}
+      lit={true}
+      />
+  );
 };
 
 const PlayField = (props) => {
@@ -90,10 +98,10 @@ const PlayField = (props) => {
             {
               row.map((cell, x) => {
                 if (cell === Board.W) {
-                  return <Block x={x} y={-y} color={"wall"} />;
+                  return <Block key={`${x}${y}${cell}`} x={x} y={10-y} color={"wall"} />;
                 }
                 else if (cell !== 0) {
-                  return <Block x={x} y={-y} color={cell} />;
+                  return <Block key={`${x}${y}${cell}`} x={x} y={10-y} color={cell} />;
                 }
               })
             }

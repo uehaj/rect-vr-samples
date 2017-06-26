@@ -20,3 +20,4 @@ export const setGamePausing = createAction(Types.SET_GAME_PAUSING);
 export const setModal = createAction(Types.SET_MODAL);
 export const setScore = createAction(Types.SET_SCORE);
 export const addScore = createAction(Types.ADD_SCORE);
+export const setGoAround = createAction(Types.SET_GO_AROUND);

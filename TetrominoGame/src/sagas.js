@@ -1,7 +1,10 @@
 /* eslint no-constant-condition: ["error", { "checkLoops": false }] */
+import { asset, Pano, Scene, Animated } from 'react-vr';
 import { delay } from 'redux-saga';
 import { race, take, put, call, fork, select, cancel } from 'redux-saga/effects';
 //import 'seedrandom';
+
+
 import * as Config from './game/config';
 import * as Actions from './actions';
 import * as Types from './types';
@@ -74,10 +77,13 @@ export function* slackTimeChecker() {
   }
 }
 
+/**
+ * 一つのピースが落下するまで。
+ */
 export function* pieceFall() {
   let piece = new Piece(3, 1, Math.floor(Math.random() * 7), 0);
   let board = yield select((state => state.board));
-  console.log(board);
+
   if (!piece.canPut(board)) {
     // トップ位置に置けなければゲームオーバー
     yield put(Actions.sysGameOver());
@@ -155,10 +161,13 @@ export default function* rootSaga() {
   }
 //  yield call(() => Promise.resolve(Router.push('/')));
   while (true) {
-    console.log('hoge2');
     // デモ画面
     let key;
     while ((key = yield take(Types.UI_KEY_DOWN)).payload !== Keys.KEY_S) {
+      if (key.payload === Keys.KEY_R) {
+        console.log('a[4]');
+        yield put(Actions.setGoAround(true));
+      }
       console.log(key);
       /* do nothinng */
     }

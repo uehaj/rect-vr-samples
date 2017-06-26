@@ -21,3 +21,4 @@ export const SET_GAME_PAUSING = 'SET_GAME_PAUSING';
 export const SET_MODAL = 'SET_MODAL';
 export const SET_SCORE = 'SET_SCORE';
 export const ADD_SCORE = 'ADD_SCORE';
+export const SET_GO_AROUND = 'SET_GO_AROUND';
