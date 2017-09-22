@@ -1,34 +1,29 @@
 import React from 'react';
 import {
   AppRegistry,
+  AmbientLight,
+  PointLight,
   asset,
-  Pano,
-  Text,
   View,
+  Scene,
 } from 'react-vr';
+
+import Earth from './src/components/Earth';
 
 export default class SpaceTour extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <Text
-          style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            fontWeight: '400',
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -3]}],
-          }}>
-          hello
-        </Text>
+        <PointLight
+          intensity={2.0}
+          style={{ transform: [{ translate: [1, 1, 10] }] }}
+        />
+        <AmbientLight intensity={0.1} />
+        <Scene style={{ transform: [{ translate: [0, 0, 10] }] }} />
+        <Earth />
       </View>
     );
   }
-};
+}
 
 AppRegistry.registerComponent('SpaceTour', () => SpaceTour);
