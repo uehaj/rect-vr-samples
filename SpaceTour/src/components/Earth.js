@@ -7,8 +7,9 @@ const Earth = props => (
     widthSegments={20}
     heightSegments={12}
     texture={asset('2k_earth_daymap.jpg')}
-    {...props}
-  />
+    {...props}>
+    {props.children}
+  </Sphere>
 );
 
 export default Earth;
